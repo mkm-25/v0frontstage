@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Home, Video, FileText, BookOpen, CreditCard, HelpCircle, MessageCircle } from "lucide-react"
+import { Home, Video, FileText, BookOpen, CreditCard, HelpCircle, MessageCircle, Bot } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Logo from "@/components/logo"
 
@@ -12,6 +12,7 @@ export default function Sidebar() {
   const navItems = [
     { label: "Home", href: "/", icon: Home },
     { label: "Join Interview", href: "/join", icon: Video },
+    { label: "AI Interview", href: "/interview/live", icon: Bot },
     { label: "Deliverables", href: "/deliverables", icon: FileText },
     { label: "Prep Guide", href: "/prep", icon: BookOpen },
     { label: "Subscription", href: "/subscription", icon: CreditCard },
