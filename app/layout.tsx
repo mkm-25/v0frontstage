@@ -57,6 +57,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={inter.className}>
         <body className={`font-sans antialiased`}>
+          {/* Authentication checks commented out - app is now public */}
+          <div className="flex h-screen bg-background">
+            <Sidebar />
+            <main className="flex-1 overflow-auto">{children}</main>
+          </div>
+          {/* 
           {isDesignPreview ? (
             <div className="flex h-screen bg-background">
               <Sidebar />
@@ -84,6 +90,7 @@ export default function RootLayout({
               </SignedOut>
             </>
           )}
+          */}
           <Analytics />
         </body>
       </html>

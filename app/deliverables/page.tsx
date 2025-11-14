@@ -7,9 +7,10 @@ import { createClient } from "@/lib/supabase/server"
 export default async function DeliverablesPage() {
   const supabase = await createClient()
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  // Authentication checks commented out - app is now public
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser()
 
   let deliverables = []
   let stats = {
@@ -19,21 +20,35 @@ export default async function DeliverablesPage() {
     ready: 0,
   }
 
-  if (user) {
-    const { data } = await supabase
-      .from("deliverables")
-      .select("*")
-      .eq("user_id", user.id)
-      .order("created_at", { ascending: false })
+  // Show all deliverables (no user filter) - app is now public
+  const { data } = await supabase
+    .from("deliverables")
+    .select("*")
+    .order("created_at", { ascending: false })
 
-    deliverables = data || []
-    stats = {
-      clips: deliverables.filter((d) => d.title.includes("Clip")).length,
-      fullVideos: deliverables.filter((d) => d.title.includes("Full")).length,
-      totalTime: `${deliverables.length * 4}h`,
-      ready: deliverables.filter((d) => d.status === "ready").length,
-    }
+  deliverables = data || []
+  stats = {
+    clips: deliverables.filter((d) => d.title.includes("Clip")).length,
+    fullVideos: deliverables.filter((d) => d.title.includes("Full")).length,
+    totalTime: `${deliverables.length * 4}h`,
+    ready: deliverables.filter((d) => d.status === "ready").length,
   }
+
+  // if (user) {
+  //   const { data } = await supabase
+  //     .from("deliverables")
+  //     .select("*")
+  //     .eq("user_id", user.id)
+  //     .order("created_at", { ascending: false })
+
+  //   deliverables = data || []
+  //   stats = {
+  //     clips: deliverables.filter((d) => d.title.includes("Clip")).length,
+  //     fullVideos: deliverables.filter((d) => d.title.includes("Full")).length,
+  //     totalTime: `${deliverables.length * 4}h`,
+  //     ready: deliverables.filter((d) => d.status === "ready").length,
+  //   }
+  // }
 
   return (
     <div className="p-8 max-w-6xl mx-auto">

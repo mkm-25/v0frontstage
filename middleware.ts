@@ -1,6 +1,11 @@
-import { clerkMiddleware } from "@clerk/nextjs/server"
+// Authentication middleware commented out - app is now public
+// import { clerkMiddleware } from "@clerk/nextjs/server"
 
-export default clerkMiddleware()
+// export default clerkMiddleware()
+
+export default function middleware() {
+  // No authentication required - public access
+}
 
 export const config = {
   matcher: [

@@ -6,10 +6,12 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import AIOrb from "@/components/AIOrb"
 import { RealtimeClient, ConnectionStatus } from "@/lib/realtime"
-import { useUser } from "@clerk/nextjs"
+// Authentication check commented out - app is now public
+// import { useUser } from "@clerk/nextjs"
 
 export default function AIIInterviewPage() {
-  const { user } = useUser()
+  // Authentication check commented out - app is now public
+  // const { user } = useUser()
   const [status, setStatus] = useState<ConnectionStatus>("disconnected")
   const [isAISpeaking, setIsAISpeaking] = useState(false)
   const [sessionId, setSessionId] = useState<string | null>(null)
@@ -52,10 +54,12 @@ export default function AIIInterviewPage() {
   }, [status, isAISpeaking])
 
   const handleStartInterview = async () => {
-    if (!user?.id) {
-      alert("Please sign in to start an interview")
-      return
-    }
+    // Authentication check commented out - app is now public
+    // Use a placeholder user_id
+    // if (!user?.id) {
+    //   alert("Please sign in to start an interview")
+    //   return
+    // }
 
     try {
       // Start interview session via API
@@ -63,7 +67,7 @@ export default function AIIInterviewPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          user_id: user.id,
+          user_id: `public-user-${Date.now()}`,
           notes: "AI Interview Session",
         }),
       })

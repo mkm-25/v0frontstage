@@ -5,16 +5,20 @@ export async function POST(req: Request) {
   try {
     const { user_id, notes, duration } = await req.json()
 
-    if (!user_id) {
-      return NextResponse.json(
-        { error: 'user_id is required' },
-        { status: 400 }
-      )
-    }
+    // Authentication check commented out - app is now public
+    // Use a placeholder user_id if not provided
+    const sessionUserId = user_id || 'public-user-' + Date.now()
+
+    // if (!user_id) {
+    //   return NextResponse.json(
+    //     { error: 'user_id is required' },
+    //     { status: 400 }
+    //   )
+    // }
 
     const { data, error } = await supabase
       .from('interview_sessions')
-      .insert([{ user_id, notes, duration }])
+      .insert([{ user_id: sessionUserId, notes, duration }])
       .select()
       .single()
 

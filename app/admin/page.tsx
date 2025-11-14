@@ -1,23 +1,25 @@
-import { auth, currentUser } from "@clerk/nextjs/server"
+// Authentication checks commented out - app is now public
+// import { auth, currentUser } from "@clerk/nextjs/server"
 import { createClient } from "@/lib/supabase/server"
 import { format } from "date-fns"
 
 export default async function AdminPage() {
-  const { userId } = await auth()
-  const user = await currentUser()
+  // Authentication checks commented out - app is now public
+  // const { userId } = await auth()
+  // const user = await currentUser()
 
-  if (!userId || user?.publicMetadata?.role !== "admin") {
-    return (
-      <div className="min-h-screen bg-background p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
-            <h1 className="text-2xl font-bold text-red-600">Access denied — admin only.</h1>
-            <p className="text-red-500/80 mt-2">You do not have permission to access this page.</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
+  // if (!userId || user?.publicMetadata?.role !== "admin") {
+  //   return (
+  //     <div className="min-h-screen bg-background p-8">
+  //       <div className="max-w-4xl mx-auto">
+  //         <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
+  //           <h1 className="text-2xl font-bold text-red-600">Access denied — admin only.</h1>
+  //           <p className="text-red-500/80 mt-2">You do not have permission to access this page.</p>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   const supabase = await createClient()
 
