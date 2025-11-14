@@ -4,7 +4,8 @@ import DashboardHeader from "@/components/dashboard-header"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { CheckCircle2, Calendar, Clock, Video } from "lucide-react"
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
+// Authentication imports commented out - app is now public
+// import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 
 const isDesignPreview =
   typeof window !== "undefined" &&

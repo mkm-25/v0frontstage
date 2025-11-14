@@ -2,7 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
 import { Analytics } from "@vercel/analytics/next"
-import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
+// Authentication imports commented out - app is now public
+// import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 import Sidebar from "@/components/sidebar"
 import Logo from "@/components/logo"
 
