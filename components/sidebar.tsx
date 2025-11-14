@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Home, Video, FileText, BookOpen, CreditCard, HelpCircle, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Logo from "@/components/logo"
 
 export default function Sidebar() {
   const pathname = usePathname()
@@ -23,11 +24,9 @@ export default function Sidebar() {
     <div className="w-64 h-screen bg-sidebar border-r border-sidebar-border flex flex-col p-6 sticky top-0 animate-slide-in-left">
       {/* Logo */}
       <div className="mb-8">
-        <Link href="/">
-          <div className="cursor-pointer hover:opacity-80 transition-opacity duration-200">
-            <img src="/logo-white.png" alt="Sonoment Logo" className="h-5 w-auto" />
-          </div>
-        </Link>
+        <div className="cursor-pointer hover:opacity-80 transition-opacity duration-200">
+          <Logo width={120} height={20} />
+        </div>
       </div>
 
       {/* Navigation */}
