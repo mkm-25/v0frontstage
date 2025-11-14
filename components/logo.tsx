@@ -1,10 +1,9 @@
-import Image from "next/image"
 import Link from "next/link"
 
 export default function Logo({ width = 32, height = 32 }: { width?: number; height?: number }) {
   return (
     <Link href="/" className="flex items-center">
-      <Image 
+      <img 
         src="/frontstagelogo.png" 
         alt="Logo" 
         width={width} 
