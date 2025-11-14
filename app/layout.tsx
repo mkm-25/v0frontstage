@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import { Analytics } from "@vercel/analytics/next"
 import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs"
 import Sidebar from "@/components/sidebar"
+import Logo from "@/components/logo"
 
 import "./globals.css"
 
@@ -72,6 +73,9 @@ export default function RootLayout({
               <SignedOut>
                 <div className="flex items-center justify-center h-screen bg-background">
                   <div className="text-center">
+                    <div className="mb-6 flex justify-center">
+                      <Logo width={64} height={64} />
+                    </div>
                     <h1 className="text-3xl font-bold text-foreground mb-4">auth:frame</h1>
                     <p className="text-foreground/60 mb-6">Sign in to access your dashboard</p>
                     <SignInButton mode="modal" />
